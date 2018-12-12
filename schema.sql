@@ -8,7 +8,8 @@ Create TABLE oscar (
 	id INT auto_increment primary KEY,
 	Ceremony INT,
     Film TEXT,
-    Award_Count INT) ;
+    Award_Count INT,
+    moviesearch TEXT) ;
     
 CREATE TABLE movies (
 	id INT auto_increment primary KEY,
@@ -18,4 +19,5 @@ CREATE TABLE movies (
     Budget_ADJ LONG,
     Gross_Income_ADJ LONG,
     Director TEXT,
-    IMDB_Score INT);
+    IMDB_Score INT,
+    moviesearch TEXT);
