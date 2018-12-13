@@ -1,23 +1,21 @@
-DROP database if exists movie_search_db;
-Create DATABASE movie_search_db character set UTF8 collate utf8_bin;
-USE movie_search_db;
+DROP database if exists pokemonsearch;
+Create DATABASE pokemonsearch character set UTF8 collate utf8_bin;
+USE pokemonsearch;
 
 
 
-Create TABLE oscar (
-	id INT auto_increment primary KEY,
-	Ceremony INT,
-    Film TEXT,
-    Award_Count INT,
-    moviesearch TEXT) ;
+Create TABLE pokedex (
+	id INT primary KEY,
+	Name TEXT,
+    Type_1 TEXT,
+    Type_2 TEXT,
+    Total INT,
+    Generation INT,
+    Legendary BOOLEAN) ;
     
-CREATE TABLE movies (
-	id INT auto_increment primary KEY,
-    Movie_Title TEXT,
-    Year INT,
-    Content_Rating TEXT,
-    Budget_ADJ LONG,
-    Gross_Income_ADJ LONG,
-    Director TEXT,
-    IMDB_Score INT,
-    moviesearch TEXT);
+CREATE TABLE pokemongo (
+	id INT primary KEY,
+    cp INT,
+    defenserank INT,
+    attackrank INT,
+    healthrank INT);
