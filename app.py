@@ -12,12 +12,6 @@ connection = pymysql.connect(host='localhost',
 
 app = Flask(__name__)
 
-#connection_string = (
-#   f"root:{mysql_conn.password}@localhost/pokemonsearch?charset=utf8")
-#engine = create_engine(f'mysql://{connection_string}')
-
-#session = Session(engine)
-
 
 def convert_to_dict(pokemonsearch, label):
     
@@ -36,7 +30,9 @@ def convert_to_dict(pokemonsearch, label):
 def welcome():
         """Welcome to the Pokemon API"""
         return (
-            f"Welcome to the Discount, Bargin-Bin Pokedex. We're Totally Licensed to do This."
+            f"Welcome to the Discount, Bargin-Bin Pokedex. We're Totally Licensed to do This.<br><br>"
+            f"Route = /api/v1.0/pokemonsearch/<name> to search for pokemon name's<br><br> "
+            f"example: <a href='http://127.0.0.1:5000/api/v1.0/pokemonsearch/Pikachu'>http://127.0.0.1:5000/api/v1.0/pokemonsearch/Pikachu</a> "
         )
 
 @app.route("/api/v1.0/pokemonsearch/<name>")
@@ -48,8 +44,8 @@ def pokemon_search_by_pokemon_name(name):
 
         try:
             with connection.cursor() as cursor:
-                #sql = "select * from pokedex where LOWER(pokedex.Name) ='"+name+"'"
-                sql = "select * from pokedex LEFT JOIN pokemongo ON pokedex.id = pokemongo.id where LOWER(pokedex.Name) ='"+name+"'"
+                
+                sql = "select pokedex.*, pokemongo.cp,pokemongo.defenserank,pokemongo.attackrank,pokemongo.healthrank from pokedex LEFT JOIN pokemongo ON pokedex.id = pokemongo.id where LOWER(pokedex.Name) ='"+name+"'"
                 print(sql)
                 cursor.execute(sql)
                 pokemonsearch = cursor.fetchall()
