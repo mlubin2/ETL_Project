@@ -49,7 +49,7 @@ def pokemon_search_by_pokemon_name(name):
         try:
             with connection.cursor() as cursor:
                 #sql = "select * from pokedex where LOWER(pokedex.Name) ='"+name+"'"
-                sql = "select pokedex.*, pokemongo.cp,pokemongo.defenserank,pokemongo.attackrank,pokemongo.healthrank from pokedex LEFT JOIN pokemongo ON pokedex.id = pokemongo.id where LOWER(pokedex.Name) ='"+name+"'"
+                sql = "select * from pokedex LEFT JOIN pokemongo ON pokedex.id = pokemongo.id where LOWER(pokedex.Name) ='"+name+"'"
                 print(sql)
                 cursor.execute(sql)
                 pokemonsearch = cursor.fetchall()
