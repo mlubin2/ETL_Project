@@ -1,0 +1,31 @@
+<DOCTYPE html>
+    <html lang= "en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Pokemon Search</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="stylesheet.css" />
+       
+        <script>
+                function go(){
+                    //e.preventDefault()
+                    var v = document.getElementById("search").value;
+                window.location.href = "http://127.0.0.1:5000/direct/pokemonsearch/"+v
+                }
+               
+            </script>
+    </head>
+    <body>
+        
+            <div class="wrapper">
+                    <div class="container">
+                        <form onsubmit="event.preventDefault();go();">
+                      <input id="search" type="text" class="input" placeholder="Enter Pokemon...">
+                      <input type="submit" value="search" class="close-btn">
+                      </form>
+                    </div>
+                  </div>
+    </body>
+
+    </html>
